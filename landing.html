@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PostWriter — A Week of Social Posts in One Click · Mediastarr</title>
+<meta name="description" content="AI social-media writer for small businesses. Enter your business, pick a tone, get a week of ready-to-post captions instantly. $14.99/month.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+         color: #1f2937; background: #fff; line-height: 1.6; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+  .logo { font-weight: 800; font-size: 20px; color: #1a2b4a; }
+  .logo span { color: #7c3aed; }
+  .navlinks a { margin-left: 28px; text-decoration: none; color: #4b5563; font-size: 15px; }
+  .btn { display: inline-block; background: #7c3aed; color: #fff; text-decoration: none;
+         padding: 13px 30px; border-radius: 12px; font-weight: 700; font-size: 16px; border: none; cursor: pointer; }
+  .btn:hover { background: #6d28d9; }
+  .btn.ghost { background: #f5f0ff; color: #7c3aed; }
+  .hero { text-align: center; padding: 70px 0 50px; }
+  .hero h1 { font-size: 46px; line-height: 1.15; color: #111827; letter-spacing: -1px; max-width: 760px; margin: 0 auto 18px; }
+  .hero h1 span { color: #7c3aed; }
+  .hero p { font-size: 19px; color: #6b7280; max-width: 620px; margin: 0 auto 32px; }
+  .hero .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .badges { display: flex; gap: 26px; justify-content: center; margin-top: 44px; flex-wrap: wrap; }
+  .badge { display: flex; align-items: center; gap: 9px; font-size: 14.5px; color: #4b5563; font-weight: 600; }
+  .badge .dot { width: 10px; height: 10px; border-radius: 50%; background: #22c55e; }
+  .section { padding: 64px 0; }
+  .section h2 { text-align: center; font-size: 32px; color: #111827; margin-bottom: 12px; letter-spacing: -0.5px; }
+  .section .sub { text-align: center; color: #6b7280; font-size: 17px; margin-bottom: 44px; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .step { background: #f8fafc; border-radius: 16px; padding: 30px 26px; text-align: center; }
+  .step .num { width: 44px; height: 44px; border-radius: 50%; background: #7c3aed; color: #fff;
+               font-weight: 800; font-size: 19px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .step h3 { font-size: 18px; margin-bottom: 8px; }
+  .step p { font-size: 14.5px; color: #6b7280; }
+  .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .feat { display: flex; gap: 16px; background: #f8fafc; border-radius: 14px; padding: 24px; }
+  .feat .icon { font-size: 28px; flex: 0 0 auto; }
+  .feat h3 { font-size: 16.5px; margin-bottom: 6px; }
+  .feat p { font-size: 14.5px; color: #6b7280; }
+  .demo-box { background: #1a2b4a; border-radius: 20px; padding: 54px 40px; color: #fff; }
+  .demo-box h2 { color: #fff; text-align: center; }
+  .demo-box > p { color: #c3cede; max-width: 560px; margin: 0 auto 30px; font-size: 17px; text-align: center; }
+  .mock { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+  .mock .post { background: #fff; color: #1f2937; border-radius: 12px; padding: 18px 20px; font-size: 14.5px; line-height: 1.6; text-align: left; }
+  .mock .post .tags { color: #7c3aed; margin-top: 8px; font-size: 13.5px; }
+  .pricing { max-width: 440px; margin: 0 auto; background: #fff; border: 2px solid #7c3aed;
+             border-radius: 20px; padding: 40px 36px; text-align: center;
+             box-shadow: 0 12px 40px rgba(124,58,237,.12); }
+  .pricing .price { font-size: 52px; font-weight: 800; color: #111827; }
+  .pricing .per { color: #6b7280; font-size: 16px; }
+  .pricing ul { list-style: none; text-align: left; margin: 26px 0; }
+  .pricing li { padding: 9px 0; font-size: 15px; border-bottom: 1px solid #f1f5f9; }
+  .pricing li:before { content: "✓ "; color: #22c55e; font-weight: 700; }
+  .faq { max-width: 720px; margin: 0 auto; }
+  .faq details { background: #f8fafc; border-radius: 12px; padding: 18px 22px; margin-bottom: 12px; }
+  .faq summary { font-weight: 700; cursor: pointer; font-size: 15.5px; }
+  .faq p { margin-top: 10px; font-size: 14.5px; color: #4b5563; }
+  .final { text-align: center; padding: 70px 0; background: #f8fafc; border-radius: 24px; margin-bottom: 40px; }
+  .final h2 { margin-bottom: 14px; }
+  footer { text-align: center; color: #9aa1ad; font-size: 13px; padding: 26px 0 40px; }
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 33px; }
+    .steps, .features { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <div class="logo">Post<span>Writer</span></div>
+    <div class="navlinks">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>A week of social posts in <span>one click</span></h1>
+    <p>You know you should post more. PostWriter writes it for you — on-brand captions for Facebook and Instagram, tailored to your business, ready to copy-paste.</p>
+    <div class="cta-row">
+      <a class="btn" href="#pricing">Get started — $14.99/mo</a>
+      <a class="btn ghost" href="#demo">See examples</a>
+    </div>
+    <div class="badges">
+      <div class="badge"><span class="dot"></span> No writing block, ever</div>
+      <div class="badge"><span class="dot"></span> Your tone, your business</div>
+      <div class="badge"><span class="dot"></span> Cancel anytime</div>
+    </div>
+  </div>
+
+  <div class="section" id="how">
+    <h2>How it works</h2>
+    <div class="sub">From signup to a week of posts in under a minute.</div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Describe your business</h3><p>Name, what you do, your tone. Saved on your device — enter it once.</p></div>
+      <div class="step"><div class="num">2</div><h3>Pick a topic (or don't)</h3><p>Give it a focus like "weekend special" — or leave it blank and let the AI choose.</p></div>
+      <div class="step"><div class="num">3</div><h3>Copy, paste, post</h3><p>Get 3, 5, or 7 ready captions with hashtags. One click copies each to your clipboard.</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Why businesses love it</h2>
+    <div class="sub">The posting habit, without the blank-page dread.</div>
+    <div class="features">
+      <div class="feat"><div class="icon">⚡</div><div><h3>Seconds, not hours</h3><p>A week's worth of content in one click. Posting stops being a chore you avoid.</p></div></div>
+      <div class="feat"><div class="icon">🎯</div><div><h3>Written for YOUR business</h3><p>Not generic templates — captions built around your business, your services, your voice.</p></div></div>
+      <div class="feat"><div class="icon">🎭</div><div><h3>Four tones</h3><p>Friendly, Professional, Playful, or Bold. Match the vibe your customers expect.</p></div></div>
+      <div class="feat"><div class="icon">📱</div><div><h3>Facebook + Instagram</h3><p>Posts shaped for each platform, with hashtags included. No extra formatting needed.</p></div></div>
+      <div class="feat"><div class="icon">💡</div><div><h3>Never runs dry</h3><p>No topic in mind? The AI picks engaging angles — promos, behind-the-scenes, tips, holidays.</p></div></div>
+      <div class="feat"><div class="icon">🔁</div><div><h3>Fresh every time</h3><p>Generate again for a whole new batch. You'll never post the same thing twice.</p></div></div>
+    </div>
+  </div>
+
+  <div class="section" id="demo">
+    <div class="demo-box">
+      <h2>Real output, zero editing</h2>
+      <p>Here's what PostWriter generated for a fictional pizza shop — these went straight to Facebook:</p>
+      <div class="mock">
+        <div class="post">Friday called — it wants pizza. 🍕 Large pepperoni + garlic knots = the only correct weekend plan. Who's in?<div class="tags">#PizzaNight #WeekendVibes #SunnySlice #Foodie</div></div>
+        <div class="post">Behind the counter at 6am: dough's proofing, sauce is simmering, and Marco's already taste-testing (again). This is why our crust hits different. 👀<div class="tags">#BehindTheScenes #RealPizza #LocalEats</div></div>
+        <div class="post">PSA: cold pizza for breakfast is a lifestyle, not a mistake. We don't make the rules. 😌<div class="tags">#PizzaLovers #BreakfastOfChampions #SunnySlice</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="pricing">
+    <h2>Simple pricing</h2>
+    <div class="sub">One plan. Everything included.</div>
+    <div class="pricing">
+      <div class="price">$14.99<span class="per">/month</span></div>
+      <ul>
+        <li>Unlimited post generation</li>
+        <li>3, 5, or 7 posts per batch</li>
+        <li>Facebook + Instagram formats</li>
+        <li>4 tones to choose from</li>
+        <li>Your business profile saved</li>
+        <li>One-click copy buttons</li>
+        <li>Cancel anytime</li>
+      </ul>
+      <a class="btn" href="https://mediastarr.lemonsqueezy.com/checkout/buy/9967b531-ce59-4aa4-9f06-ecb9cb70ff4a">Get started</a>
+    </div>
+  </div>
+
+  <div class="section" id="faq">
+    <h2>Questions</h2>
+    <div class="sub"></div>
+    <div class="faq">
+      <details><summary>Will the posts sound like a robot wrote them?</summary><p>No — you pick the tone (Friendly, Professional, Playful, Bold) and the AI writes in your business's voice, about your actual services. Owners edit less than you'd expect.</p></details>
+      <details><summary>What if I run out of topics?</summary><p>Leave the topic blank and the AI picks for you — promos, behind-the-scenes, tips, holidays, customer stories. It never repeats the same angle twice in a row.</p></details>
+      <details><summary>How do I access it after subscribing?</summary><p>You get a personal access key by email. Enter it once in the app — it's saved on your device, so you're in with one click from then on.</p></details>
+      <details><summary>What happens when I cancel?</summary><p>Your access key is revoked and billing stops. No lock-in, no fees.</p></details>
+    </div>
+  </div>
+
+  <div class="final">
+    <h2>Never stare at a blank caption box again</h2>
+    <p style="color:#6b7280;margin-bottom:26px">Join the businesses posting every week.</p>
+    <a class="btn" href="https://mediastarr.lemonsqueezy.com/checkout/buy/9967b531-ce59-4aa4-9f06-ecb9cb70ff4a">Get PostWriter — $14.99/mo</a>
+  </div>
+
+  <footer>PostWriter by Mediastarr · Questions? mediastarr86@gmail.com</footer>
+</div>
+</body>
+</html>
